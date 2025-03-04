@@ -1,6 +1,6 @@
 # settrex.github.io
 
-This is a repository that displays my personal portfolio. 
+This repository displays my personal portfolio. 
 It is used for showing my work as a Graphic Designer. 
 Here you can find:
 - My contact;
