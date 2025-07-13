@@ -1,6 +1,7 @@
 // server.js
 const express = require('express');
 const fetch = require('node-fetch'); 
+const cors = require('cors');
 
 const app = express();
 const PORT = 8080; 
@@ -41,8 +42,12 @@ app.post('/check-url', async (req, res) => {
         }
 
     } catch (error) {
-        console.error("Server-side fetch error for URL:", targetUrl, error);
-        res.status(500).json({ status: 'invalid', message: 'Invalid URL: Could not reach the specified address (network issue).' });
+        console.error(`--- START Server-side fetch error for URL: ${targetUrl} ---`);
+        console.error('Error Name:', error.name);
+        console.error('Error Message:', error.message);
+        console.error('Error Code (if any):', error.code);
+        console.error('Error Stack:', error.stack);
+        console.error('--- END Server-side fetch error ---');
     }
 });
 
