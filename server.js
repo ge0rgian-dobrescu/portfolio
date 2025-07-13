@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 const app = express();
 const PORT = 8080; 
 
+app.use(cors());
 
 app.use(express.json());
 
@@ -19,6 +20,8 @@ app.post('/check-url', async (req, res) => {
 
     try {
         const response = await fetch(targetUrl, { method: 'HEAD', redirect: 'follow' });
+
+        console.log(`Backend received status ${response.status} for URL: ${targetUrl}`);
 
         // Check the HTTP status code and send appropriate response back to the frontend
         if (response.ok) { // Status is 2xx (Success)
