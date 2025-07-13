@@ -1,5 +1,92 @@
-body{
-    background:  #031321;
+body {
+    background: #031321;
     color: #ededed;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+
+.project-content {
+    max-width: 800px;
+    margin: 80px auto 40px;
+    padding: 30px;
+    background-color: #0a1f33;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.project-item {
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: #15304b;
+    border: 1px solid #306080;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.project-item:last-child {
+    margin-bottom: 0;
+}
+
+.project-item h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #00bcd4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.project-item p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ededed;
+}
+
+.project-preview {
+    margin-bottom: 30px;
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.project-preview img {
+    max-width: 5%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-preview img:hover {
+    transform: scale(1.02);
+}
+
+.project-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.live-demo-link, .github-link {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #031321;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.live-demo-link:hover, .github-link:hover {
+    background-color: #0099ab;
+    transform: translateY(-2px);
+    border-color: #ededed;
 }
 
