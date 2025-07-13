@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This repository displays my personal portfolio.  It is used for showing my work as a Graphic Designer.  Here you can find: - My contact; - My Photoshop artwork (Twitch / YouTube Design for different content creators); - My Coding projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ge0rgian-dobrescu/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ge0rgian-dobrescu/portfolio/issues"
+  },
+  "homepage": "https://github.com/ge0rgian-dobrescu/portfolio#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-fetch": "^2.6.7"
+  }
+}

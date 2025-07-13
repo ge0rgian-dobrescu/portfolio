@@ -25,16 +25,53 @@
             let qrText = document.getElementById("qrText");
             let errorMessage = document.getElementById("errorMessage");
 
-            function qrGen(){
-                if(qrText.value.length> 0){
-                    qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
-                    imgBox.classList.add("show-img");
+            async function qrGen(){
+
+                errorMessage.textContent="";
+                qrText.classList.remove("error-input");
+
+                imgBox.classList.remove("show-img");
+                qrImg.src="";
+
+                let url=qrText.value.trim();
+
+                if(url.length==0){
+                    errorMessage.textContent = "Please enter a URL to generate QR Code";
+                    qrText.classList.add("error-input");
+                    return;
                 }
-                else{
-                     errorMessage.textContent = "Please enter an URL to generate a QR code.";
-                     qrText.classList.add("error-input");
+
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "https://" + url;
                 }
+
+                try{
+                    const proxyResponse = await fetch('/check-url', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json' // REMOVED THE COLON HERE
+                        },
+                        body: JSON.stringify({targetUrl: url})
+                    });
+                    if (!proxyResponse.ok) { 
+                        const errorText = await proxyResponse.text(); 
+                        throw new Error(`Server proxy communication error: ${proxyResponse.status} - ${errorText}`);
+                    }
+                    const data = await proxyResponse.json();
+
+                    if(data.status == 'valid'){
+                        qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(url);
+                        imgBox.classList.add("show-img");
+                    } else{
+                        errorMessage.textContent = data.message || "Unknown error occured during URL validation.";
+                        qrText.classList.add("error-input");
+                    }
+                } catch(error){
+                    errorMessage.textContent = "Invalid URL: Please check the URL format (e.g., 'https://example.com')";
+                    qrText.classList.add("error-input");
+                    console.error("Fetch error:", error);
             }
+        }
         </script>
     </body>
 </html>
