@@ -1,4 +1,4 @@
-# settrex.github.io
+# ge0rgian-dobrescu.github.io
 
 This repository displays my personal portfolio. 
 It is used for showing my work as a Graphic Designer. 
